@@ -2,6 +2,7 @@ package com.example.jk.retrotest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.jk.retrotest.model.Repo;
@@ -50,7 +51,14 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                 List<Repo> body = response.body();
 
-                hello.setText(""+body.size());
+                for(int i = 0; i < body.size(); i++ ){
+                 Repo repo = body.get(i);
+
+                    Log.d("TAG", repo.sshUrl);
+
+                }
+
+                hello.setText("");
             }
 
             @Override
